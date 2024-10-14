@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Image to WhatsApp</title>
+    <style>
+        /* Internal CSS */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .image-container {
+            text-align: center;
+        }
+        img {
+            width: 300px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="image-container">
+    <h2>Click the Image to Send it via WhatsApp</h2>
+    <img id="sendImage" src="image4.jpg" alt="Click to send image">
+</div>
+
+<script>
+    // JavaScript to handle the image click and send it via WhatsApp
+    document.getElementById('sendImage').onclick = function() {
+        let imageUrl = window.location.origin + '/image4.jpg'; // Full image URL
+        let phoneNumber = '94714561670'; // WhatsApp number in international format
+        let message = `Hello! Check out this image: ${imageUrl}`; // Message content
+
+        // Open WhatsApp with the message and image URL
+        window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+    };
+</script>
+
+</body>
+</html>
